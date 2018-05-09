@@ -8,10 +8,14 @@ public class WrongFormatException extends IOException {
 	 */
 	private static final long serialVersionUID = -6002087848292259690L;
 	private String message;
-	private String position;
 
-	public WrongFormatException(String position) {
-		this.position = position;
+	public WrongFormatException(String message) {
+		this.message = message;
+	}
+
+	@Override
+	public String getMessage() {
+		return "Wrong input file format. Check string: " +message;
 	}
 
 	public WrongFormatException() {
@@ -20,6 +24,6 @@ public class WrongFormatException extends IOException {
 
 	@Override
 	public String toString() {
-		return ("Wrong input file format. Check string: " + position);
+		return ("Wrong input file format. Check string: " + message);
 	}
 }
